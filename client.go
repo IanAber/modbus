@@ -293,7 +293,7 @@ func (mc *ModbusClient) Open() (err error) {
 		// force the TLS handshake
 		err = sock.(*tls.Conn).Handshake()
 		if err != nil {
-			_ = sock.Close()
+			sock.Close()
 			return
 		}
 
